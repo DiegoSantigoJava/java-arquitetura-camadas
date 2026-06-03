@@ -28,4 +28,24 @@ public class PessoaRepository {
 
         return null;
     }
+
+    public void atualizar(Pessoa pessoaAtualizada) {
+
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i).getEmail().equals(pessoaAtualizada.getEmail())) {
+                pessoas.set(i, pessoaAtualizada);
+                return;
+            }
+        }
+    }
+
+    public void remover(String email) {
+
+        Pessoa pessoa = buscarPorEmail(email);
+
+        if (pessoa != null) {
+            pessoas.remove(pessoa);
+        }
+    }
 }
